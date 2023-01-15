@@ -1,0 +1,4 @@
+studysmarter==0.0.1
+requests==2.28.1
+pyfiglet==0.8.post1
+pystyle==2.9
