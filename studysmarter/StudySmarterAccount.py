@@ -54,7 +54,7 @@ class Account:
     
     def create_studyset(self,
                          name: str,
-                         color_id: int,
+                         color_id: int=62,
                          *,
                          exam_date=None,
                          shared=True,
