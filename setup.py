@@ -29,7 +29,7 @@ LONG_DESCRIPTION = 'A library that wraps the StudySmarter API for easier use'
 
 def readme():
     with open("README.md", "r", encoding="utf-8") as md:
-        return "\n" + md.read
+        return "\n" + md.read()
 
 # Setting up
 setup(
