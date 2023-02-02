@@ -43,7 +43,7 @@ class StudySet:
 
     def add_flashcard(self, question: str, answer: str) -> StudySmarterResponse:
         resp = self.__session.post(
-            f"https://prod.studysmarter.de/users/{self.user_id}/course-subjects/{self.set_id}/flashcards/",
+            f"https://prod.studysmarter.de/users/studysets/{self.set_id}/flashcards/",
             json={
                 "flashcard_image_ids": [],
                 "tags": [],
@@ -74,7 +74,7 @@ class StudySet:
         
     def create_subset(self, name: str) -> StudySmarterResponse:
         resp= self.__session.post(
-            f"https://prod.studysmarter.de/users/{self.user_id}/course-subjects/",
+            f"https://prod.studysmarter.de/users/studysets/",
             json={
                 "name": str(name),
                 "parent_subject_id": self.set_id
@@ -99,7 +99,7 @@ class StudySet:
                                                      incorrect_answers)
         
         resp = self.__session.post(
-            f"https://prod.studysmarter.de/users/{self.user_id}/course-subjects/{self.set_id}/flashcards/",
+            f"https://prod.studysmarter.de/users/studysets/{self.set_id}/flashcards/",
             json=answers_json,
             headers=self.__headers
         )
@@ -112,7 +112,7 @@ class StudySet:
         )
         
     def fetch_flashcards(self) -> List[str]:   
-        resp = self.__session.get(f"https://prod.studysmarter.de/users/{self.user_id}/course-subjects/{self.set_id}/flashcards/?search=&s_bad=true&s_medium=true&s_good=true&s_trash=false&s_unseen=true&tag_ids=&quantity=9999999&created_by=&order=anti-chronological&cursor=",
+        resp = self.__session.get(f"https://prod.studysmarter.de/studysets/{self.set_id}/flashcards/?search=&s_bad=true&s_medium=true&s_good=true&s_trash=false&s_unseen=true&tag_ids=&quantity=9999999&created_by=&order=smart&cursor=",
                         headers=self.__headers)
         
         question_answers = []

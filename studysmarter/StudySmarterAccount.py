@@ -45,7 +45,7 @@ class Account:
         )
     
     def fetch_studysets(self) -> StudySets:
-        resp = self.session.get(f"https://prod.studysmarter.de/users/{self.id}/course-subjects/full/",
+        resp = self.session.get(f"https://prod.studysmarter.de/users/studysets/",
                                 headers=self.headers)
         return StudySets(resp.json(),
                          self.session,
@@ -61,7 +61,7 @@ class Account:
                          unified_subject=None
                          ) -> StudySmarterResponse:
         
-        resp = self.session.post(f"https://prod.studysmarter.de/users/{self.id}/course-subjects/",
+        resp = self.session.post(f"https://prod.studysmarter.de/users/studysets/",
                           json={
                               "colorId": color_id,
                               "countries": [],
