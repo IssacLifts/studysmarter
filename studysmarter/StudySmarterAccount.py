@@ -45,7 +45,7 @@ class Account:
         )
     
     def fetch_studysets(self) -> StudySets:
-        resp = self.session.get(f"https://prod.studysmarter.de/users/studysets/",
+        resp = self.session.get(f"https://prod.studysmarter.de/studysets/",
                                 headers=self.headers)
         return StudySets(resp.json(),
                          self.session,
